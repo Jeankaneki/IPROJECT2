@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
+
 class ScoreActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,19 +14,18 @@ class ScoreActivity : AppCompatActivity() {
         setContentView(R.layout.activity_score)
 
         val score = intent.getIntExtra("SCORE", 0)
-        val questions = intent.getStringArrayListExtra("QUESTIONS")
-        val answers = intent.getBooleanArrayExtra("ANSWERS")
+        val questions = intent.getStringArrayListExtra("QUESTIONS") ?: arrayListOf()
+        val userAnswers = intent.getBooleanArrayExtra("USER_ANSWERS") ?: booleanArrayOf()
 
-        findViewById<TextView>(R.id.textView5).text = "Score: $score/5"
+        findViewById<TextView>(R.id.textView5).text = "Score: $score/${questions.size}"
         findViewById<TextView>(R.id.textView6).text =
-            if (score >= 3) "Great job!" else "Keep practicing!"
+            if (score >= questions.size / 2) "Great job!" else "Keep practicing!"
 
         findViewById<Button>(R.id.button5).setOnClickListener {
-            Intent(this, ReviewActivity::class.java).apply {
-                putStringArrayListExtra("QUESTIONS", questions)
-                putExtra("ANSWERS", answers)
-                startActivity(this)
-            }
+            val reviewIntent = Intent(this, ReviewActivity::class.java)
+            reviewIntent.putStringArrayListExtra("QUESTIONS", questions)
+            reviewIntent.putExtra("USER_ANSWERS", userAnswers)
+            startActivity(reviewIntent)
         }
 
         findViewById<Button>(R.id.button6).setOnClickListener {

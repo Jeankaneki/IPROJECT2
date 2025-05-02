@@ -1,7 +1,7 @@
 package za.ac.iie.myflashcardapp
 
 import android.os.Bundle
-import android.widget.LinearLayout
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -11,25 +11,24 @@ class ReviewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review)
 
+        val tvReview: TextView = findViewById(R.id.tvReview)
+        val btnExit: Button = findViewById(R.id.btnExit)
 
-        val questions = intent.getStringArrayListExtra("QUESTIONS")
-        val answers = intent.getBooleanArrayExtra("ANSWERS")
-        val layout = findViewById<LinearLayout>(R.id.reviewLinearLayout)
+        val questions = intent.getStringArrayListExtra("QUESTIONS") ?: arrayListOf()
+        val userAnswers = intent.getBooleanArrayExtra("USER_ANSWERS") ?: booleanArrayOf()
 
-        questions?.forEachIndexed { index, question ->
-            val answer = answers?.get(index) ?: true
-            TextView(this).apply {
-                text = buildString {
-                    append("${index + 1}. $question")
-                    append("\nCorrect Answer: ")
-                    append(if (answer) "True" else "False")
-                }
-                setPadding(0, 16.dpToPx(), 0, 16.dpToPx())
-                textSize = 16f  // Reduced for better readability
-                layout.addView(this)
-            }
+        val reviewText = StringBuilder()
+        for (i in questions.indices) {
+            val answer = userAnswers.getOrNull(i)?.toString() ?: "Not answered"
+            reviewText.append("${i + 1}. ${questions[i]}\n")
+            reviewText.append("Your answer: $answer\n\n")
+        }
+
+        tvReview.text = reviewText.toString()
+
+        btnExit.setOnClickListener {
+            finishAffinity()
         }
     }
-
-    private fun Int.dpToPx(): Int = (this * resources.displayMetrics.density).toInt()
 }
+

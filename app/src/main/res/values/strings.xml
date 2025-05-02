@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyFlashCardApp</string>
+    <string name="exit">Exit</string>
 </resources>

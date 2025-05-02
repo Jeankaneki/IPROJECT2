@@ -7,10 +7,13 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
+
+
 class FlashcardQuestionActivity : AppCompatActivity() {
 
     private lateinit var questions: Array<String>
     private lateinit var answers: BooleanArray
+    private lateinit var userAnswers: BooleanArray
     private var currentQuestionIndex = 0
     private var score = 0
 
@@ -23,13 +26,11 @@ class FlashcardQuestionActivity : AppCompatActivity() {
         if (savedInstanceState != null) {
             currentQuestionIndex = savedInstanceState.getInt("CURRENT_INDEX", 0)
             score = savedInstanceState.getInt("SCORE", 0)
-            // Restore button states
             findViewById<Button>(R.id.button2).isEnabled = savedInstanceState.getBoolean("TRUE_BTN_STATE", true)
             findViewById<Button>(R.id.button3).isEnabled = savedInstanceState.getBoolean("FALSE_BTN_STATE", true)
             findViewById<Button>(R.id.button4).isEnabled = savedInstanceState.getBoolean("NEXT_BTN_STATE", false)
         }
 
-        // Initialize questions/answers
         questions = arrayOf(
             "Nelson Mandela was the president in 1994?",
             "World War I ended in 1918.",
@@ -38,6 +39,7 @@ class FlashcardQuestionActivity : AppCompatActivity() {
             "The Declaration of Independence was signed in 1776."
         )
         answers = booleanArrayOf(true, true, true, true, true)
+        userAnswers = BooleanArray(questions.size) { false }
 
         setupUI()
     }
@@ -85,6 +87,8 @@ class FlashcardQuestionActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
+        userAnswers[currentQuestionIndex] = userAnswer
+
         val correctAnswer = answers[currentQuestionIndex]
         val feedback = if (userAnswer == correctAnswer) {
             score++
@@ -102,22 +106,16 @@ class FlashcardQuestionActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.textView4).text = ""
     }
 
-    // Adds an ArrayList<Boolean> extra to the Intent using Serializable
-    private fun Intent.putBooleanArrayListExtra(key: String, value: ArrayList<Boolean>) {
-        this.putExtra(key, value)
-    }
-
     private fun navigateToScoreScreen() {
         Intent(this, ScoreActivity::class.java).apply {
             putExtra("SCORE", score)
             putStringArrayListExtra("QUESTIONS", ArrayList(questions.toList()))
-            // Convert BooleanArray to ArrayList<Boolean> before passing
-            putBooleanArrayListExtra("ANSWERS", ArrayList(answers.toList()))
+            putExtra("USER_ANSWERS", userAnswers)
             startActivity(this)
         }
     }
-
 }
+
 
 
 
