@@ -1,7 +1,10 @@
 # IPROJECT2
 # History Flashcard Quiz App
 
-A simple Android app for testing historical knowledge through true/false questions.
+Introducing a simple Android app for testing historical knowledge through true/false questions as flashcards.
+friendly UI 
+cool and funny to use
+enjoy!
 
 ## Features
 - 5 historical true/false questions
@@ -13,6 +16,7 @@ A simple Android app for testing historical knowledge through true/false questio
 ## Screenshots
 main activity
 ![Screenshot_20250502_181433.png](Screenshot_20250502_181433.png)
+next activities
 ![Screenshot_20250502_181451.png](Screenshot_20250502_181451.png)
 ![Screenshot_20250502_181516.png](Screenshot_20250502_181516.png)
 ![Screenshot_20250502_181536.png](Screenshot_20250502_181536.png)
@@ -21,4 +25,17 @@ main activity
 ![Screenshot_20250502_181646.png](Screenshot_20250502_181646.png)
 ![Screenshot_20250502_181703.png](Screenshot_20250502_181703.png)
 
+#STD INFO:
 
+Std Name : Jean Baptiste Mwana /
+
+Std number: ST10492515.
+
+HMAW - Higher Certificate in mobile application and Web development module :IMAD5111(Assignment2)./2025RC
+
+My repository link: 
+
+My youtube video link: 
+and about units tests link :
+
+Thanks!
