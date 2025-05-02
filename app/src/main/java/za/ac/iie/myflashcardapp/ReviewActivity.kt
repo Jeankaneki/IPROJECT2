@@ -11,8 +11,8 @@ class ReviewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review)
 
-        val tvReview: TextView = findViewById(R.id.tvReview)
-        val btnExit: Button = findViewById(R.id.btnExit)
+        val tvReview: TextView = findViewById(R.id.ReviewText)
+        val btnExit: Button = findViewById(R.id.ExitBtn)
 
         val questions = intent.getStringArrayListExtra("QUESTIONS") ?: arrayListOf()
         val userAnswers = intent.getBooleanArrayExtra("USER_ANSWERS") ?: booleanArrayOf()
