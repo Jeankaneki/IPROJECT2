@@ -9,46 +9,39 @@ import androidx.appcompat.app.AppCompatActivity
 
 class ReviewActivity : AppCompatActivity() {
 
+    private val TAG = "ReviewActivity"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review)
+        Log.d(TAG, "Activity created")
 
         // Get references to UI elements
-        val textReview: TextView = findViewById(R.id.ReviewText)
-        val btnExit: Button = findViewById(R.id.ExitBtn)
+        val reviewText: TextView = findViewById(R.id.ReviewText)
+        val exitButton: Button = findViewById(R.id.ExitBtn)
 
-        // Get data from previous screen
+        // Receive quiz data
         val questions = intent.getStringArrayListExtra("QUESTIONS") ?: arrayListOf()
         val userAnswers = intent.getBooleanArrayExtra("USER_ANSWERS") ?: booleanArrayOf()
         val correctAnswers = intent.getBooleanArrayExtra("CORRECT_ANSWERS") ?: booleanArrayOf()
 
-        // Create review text
-        val reviewText = StringBuilder()
-
-        // Loop through all questions
-        for (i in questions.indices) {
-            // Get answers safely
-            val userAnswer = userAnswers.getOrNull(i) ?: "Not answered"
-            val correctAnswer = correctAnswers.getOrNull(i) ?: false
-
-            // Build review entry for each question
-            reviewText.append("Question ${i + 1}: ${questions[i]}\n")
-            reviewText.append("Your answer: ${if (userAnswer is Boolean) if (userAnswer) "True" else "False" else userAnswer}\n")
-
-            // Check if answer was correct
-            if (userAnswer == correctAnswer) {
-                reviewText.append("Result: Correct!\n\n")
-            } else {
-                reviewText.append("Result: Incorrect (Correct answer was: ${if (correctAnswer) "True" else "False"})\n\n")
+        // Build review content
+        val reviewContent = buildString {
+            questions.forEachIndexed { index, question ->
+                append("Question ${index + 1}:\n")
+                append("$question\n")
+                append("Your answer: ${userAnswers.getOrNull(index)?.let { if (it) "True" else "False" } ?: "Not answered"}\n")
+                append("Correct answer: ${correctAnswers.getOrNull(index)?.let { if (it) "True" else "False" } ?: "Unknown"}\n\n")
             }
         }
 
-        // Display the full review
-        textReview.text = reviewText.toString()
+        // Display review
+        reviewText.text = reviewContent
 
-        // Exit button click handler
-        btnExit.setOnClickListener {
-            finishAffinity()  // Close all activities
+        // Set up exit button
+        exitButton.setOnClickListener {
+            Log.d(TAG, "Exit button clicked")
+            finishAffinity()
         }
     }
 }

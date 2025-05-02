@@ -9,39 +9,26 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
-    // Companion object to hold constant values
+    // Logging tag for debugging
     companion object {
-        private const val TAG = "MainActivity"  // Tag for logging
+        private const val TAG = "MainActivity"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Enable edge-to-edge display (makes app full screen)
-        enableEdgeToEdge()
-
-        // Set the main layout file for this activity
         setContentView(R.layout.activity_main)
-
-        // Log when activity is created
         Log.d(TAG, "Activity created")
 
-        // Find the start button from layout using its ID
+        // Set up edge-to-edge display
+        enableEdgeToEdge()
+
+        // Initialize UI components
         val startButton: Button = findViewById(R.id.button)
 
-        // Set click listener for the start button
+        // Set click listener for start button
         startButton.setOnClickListener {
-            // Log button click event
-            Log.d(TAG, "Start button clicked")
-
-            // Create explicit intent to start FlashcardQuestionActivity
-            val intent = Intent(this, FlashcardQuestionActivity::class.java)
-
-            // Log before starting new activity
-            Log.i(TAG, "Starting FlashcardQuestionActivity")
-
-            // Launch the flashcard questions activity
-            startActivity(intent)
+            Log.d(TAG, "Start button clicked - launching quiz")
+            startActivity(Intent(this, FlashcardQuestionActivity::class.java))
         }
     }
 
