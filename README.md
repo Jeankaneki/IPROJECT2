@@ -25,7 +25,7 @@ next activities
 ![Screenshot_20250502_181646.png](Screenshot_20250502_181646.png)
 ![Screenshot_20250502_181703.png](Screenshot_20250502_181703.png)
 
-#STD INFO:
+#ST INFO:
 
 Std Name : Jean Baptiste Mwana /
 
@@ -33,9 +33,9 @@ Std number: ST10492515.
 
 HMAW - Higher Certificate in mobile application and Web development module :IMAD5111(Assignment2)./2025RC
 
-My repository link: 
+My repository link: https://github.com/Jeankaneki/IPROJECT2.git
 
-My youtube video link: 
-and about units tests link :
+My youtube video link: https://www.youtube.com/watch?v=NCwUhjUNyW4
+and about units tests link : https://www.youtube.com/watch?v=gQ8BQbwXmdg
 
 Thanks!
