@@ -5,15 +5,20 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backschoolvector"
     tools:context=".FlashcardQuestionActivity">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="256dp"
         android:layout_height="84dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="16dp"
         android:text="question"
         android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#F4F1F0"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,41 +27,44 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="211dp"
-        android:layout_height="77dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="217dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="8dp"
         android:textAlignment="center"
+        android:textColor="#FFFFFD"
         android:textSize="20sp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="154dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="156dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="228dp"
         android:text="True"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="163dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="160dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="56dp"
         android:text="False"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/button4"

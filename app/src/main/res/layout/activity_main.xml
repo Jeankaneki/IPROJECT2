@@ -5,17 +5,22 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backschoolvector"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="334dp"
-        android:layout_height="195dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="358dp"
+        android:layout_height="210dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/archivo_black"
         android:text="Welcome to the History Flashcard Quiz!"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textSize="20sp"
+        android:textColor="#BF360C"
+        android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,9 +28,11 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="335dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="351dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="80dp"
         android:text="Start"
         android:textAlignment="center"
         android:textAllCaps="true"
@@ -37,17 +44,22 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="282dp"
-        android:layout_height="119dp"
+        android:layout_width="291dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="72dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="monospace"
         android:text="Test your knowledge of historical facts. Press Start to begin."
         android:textAlignment="center"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.335" />
+        app:layout_constraintVertical_bias="0.913" />
 </androidx.constraintlayout.widget.ConstraintLayout>
