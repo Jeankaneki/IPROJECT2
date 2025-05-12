@@ -27,8 +27,6 @@ next activities
 
 #ST INFO:
 
-Std Name : Jean Baptiste Mwana /
-
 Std number: ST10492515.
 
 HMAW - Higher Certificate in mobile application and Web development module :IMAD5111(Assignment2)./2025RC
